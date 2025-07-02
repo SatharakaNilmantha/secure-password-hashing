@@ -15,7 +15,7 @@ public class User {
 
     private String password;
 
-    // getters and setters for username and password
+  
     public String getUsername() {
         return username;
     }
