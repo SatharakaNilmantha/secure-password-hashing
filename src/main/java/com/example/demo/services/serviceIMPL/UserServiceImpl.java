@@ -28,6 +28,7 @@ public  class UserServiceImpl implements UserService {
 
     @Override
     public String registerUser(UserDTO userDto) {
+        
         // Check for duplicate email
         if (userRepository.existsByUsername(userDto.getUsername())) {
             throw new DuplicateException("A user with this email already exists.");
@@ -35,8 +36,6 @@ public  class UserServiceImpl implements UserService {
 
         // Hash the password before saving
         userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
-
-
 
         // Map DTO to Entity
         User user = modelMapper.map(userDto, User.class);
